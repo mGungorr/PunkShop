@@ -148,6 +148,14 @@ export function Products(props) {
     [products]
   );
 
+    const addFavourite = async () => {
+        const response = await axios
+            .get("beers/addToFav")
+            .catch((err) => console.log(err));
+        if (response) {
+        }
+    };
+
   const tableHooks = (hooks) => {
     hooks.visibleColumns.push((columns) => [
       ...columns,
@@ -155,7 +163,7 @@ export function Products(props) {
         id: "Edit",
         Header: "Edit",
         Cell: ({ row }) => (
-          <Button onClick={() => alert("Adding beer to favourite list: " + row.values.name)}>
+          <Button onClick={() => alert("Adding beer to favourite list: " + row.values.name + " **Not implemented yet")}>
               ♡
           </Button>
         ),
